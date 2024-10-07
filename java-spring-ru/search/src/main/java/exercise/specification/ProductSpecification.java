@@ -11,15 +11,11 @@ import exercise.model.Product;
 public class ProductSpecification {
 
     public Specification<Product> build(ProductParamsDTO params) {
-        return withCategoryId(params.getCategoryId()).and(
-                withTitleCont(params.getTitleCont()).and(
-                        withPriceGt(params.getPriceGt()).and(
-                                withPriceLt(params.getPriceLt()).and(
-                                        withRatingGt(params.getRatingGt())
-                                )
-                        )
-                )
-        );
+        return withCategoryId(params.getCategoryId())
+                .and(withPriceGt(params.getPriceGt()))
+                .and(withPriceLt(params.getPriceLt()))
+                .and(withTitleCont(params.getTitleCont()))
+                .and(withRatingGt(params.getRatingGt()));
     }
 
     private Specification<Product> withTitleCont(String titleCont) {
