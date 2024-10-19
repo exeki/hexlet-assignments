@@ -18,6 +18,7 @@ public class ProductSpecification {
                 .and(withRatingGt(params.getRatingGt()));
     }
 
+
     private Specification<Product> withTitleCont(String titleCont) {
         return (root, query, cb) -> titleCont == null ? cb.conjunction() : cb.like(root.get("title"), "%" + titleCont + "%");
     }
